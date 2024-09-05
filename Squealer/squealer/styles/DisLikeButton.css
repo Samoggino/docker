@@ -1,0 +1,25 @@
+.dislike-button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.1s ease, transform 0.1s ease;
+}
+
+.dislike-button.disliked .thumbs-down-icon {
+    animation: fillThumbsDown 0.1s ease;
+}
+
+@keyframes fillThumbsDown {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

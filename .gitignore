@@ -1,0 +1,26 @@
+# non aggiungere i file .env da qualunque cartella
+.env
+
+# ignora le cartelle config in ogni cartella
+**/config
+
+# ignora le cartelle node_modules in ogni cartella
+**/node_modules
+
+# ignora le cartelle build in ogni cartella
+**/build
+
+# ignora le cartelle di IDE
+**/.vscode
+**/.idea
+**/.vs
+**/.DS_Store
+
+# ignora il contenuto di composer 
+**/composer/vendor
+
+# ignora il contenuto di npm
+**/npm/node_modules
+
+# ignora il contenuto di mongodb_data
+**/mongodb_data

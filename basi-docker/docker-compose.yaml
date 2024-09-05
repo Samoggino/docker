@@ -1,0 +1,32 @@
+services:
+  php:
+    image: php:latest
+    volumes:
+      - ./php:/var/www/html
+    ports:
+      - "8081:80"
+    depends_on:
+      - mongodb
+      - mysql
+    links:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    volumes:
+      - ./mongodb_data:/data/db
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3307:3306"  # Cambiato da 3306 a 3307
+    environment:
+      MYSQL_ROOT_PASSWORD: fbyhm3J#pmE%6g2%7d1@
+      MYSQL_DATABASE: PokeDB
+      MYSQL_USER: samoggino
+      MYSQL_PASSWORD: ciao
+
+volumes:
+  mongodb_data:

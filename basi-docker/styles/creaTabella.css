@@ -1,0 +1,79 @@
+.foreign-key-options {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.foreign-key-options label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.foreign-key-options select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.foreign-key-options.hidden {
+    display: none;
+}
+
+
+.attributo-container {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 200px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+form select {
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    gap: 5dvw;
+}
+
+#attributi_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 0px;
+}
+
+#attributi_container .widget-professore {
+    width: 220px;
+    height: max-content;
+    max-height: 380px;
+}
+
+.foreign-key-container {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    align-items: center;
+    margin-top: 35px;
+    margin-bottom: -75px;
+}
+
+h1{
+    padding-right: 90px;
+}

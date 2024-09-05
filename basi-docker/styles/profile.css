@@ -1,0 +1,76 @@
+#intestazione.homepage {
+    display: grid;
+    grid-template-columns: 0.1fr 0.8fr 0.1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+#info {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 37%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    background: rgb(224 224 224);
+    height: 45dvh;
+}
+
+.popup-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-btn {
+    cursor: pointer;
+    position: absolute;
+    top: -1dvh;
+    right: 8px;
+    font-size: 2rem;
+}
+
+.popup span {
+    margin: 10px;
+}
+
+#intestazione button {
+    background-image: url("../../images/icons/profile.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+#intestazione button:active,
+.button-confirm:active {
+    box-shadow: 0px 0px black;
+    transform: scale(1.1);
+    transition: all 0.15s;
+}
+
+.widget-professore.popup:hover {
+    background-color: darkgray;
+    transition: all 0.3s;
+}

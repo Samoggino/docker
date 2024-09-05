@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  background-color: #f5f7fb;
+  color: #333;
+  /* color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb)); */
+}
+
+.colored {
+  color: blue;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+.map-container {
+  height: 38rem;
+  width: 100%;
+}
+
+/* Default icon URLs */
+/* .leaflet-default-icon-path {
+  background-image: url(../public/assets/marker-icon.png);
+}
+
+.leaflet-default-shadow-path {
+  background-image: url(../public/assets/marker-shadow.png);
+} */ 

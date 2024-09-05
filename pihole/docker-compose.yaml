@@ -1,0 +1,27 @@
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    environment:
+      TZ: 'Europe/Rome'  # Imposta il tuo fuso orario
+      WEBPASSWORD: 'yourpassword'  # Password per accedere all'interfaccia web di Pi-hole
+    volumes:
+      - './etc-pihole:/etc/pihole'  # Memorizza i file di configurazione di Pi-hole
+      - './etc-dnsmasq.d:/etc/dnsmasq.d'  # Memorizza i file di configurazione di DNSMasq
+    ports:
+      - "53:53/tcp"  # Porta per il DNS
+      - "53:53/udp"  # Porta per il DNS
+      - "80:80/tcp"  # Porta per l'interfaccia web di Pi-hole
+    cap_add:
+      - NET_ADMIN  # Aggiunge la capacità di gestire la rete
+    restart: unless-stopped
+    networks:
+      pihole_net:
+        ipv4_address: 192.168.1.2  # Indirizzo IP statico nel network creato da Docker
+
+networks:
+  pihole_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24  # Subnet per la rete Docker

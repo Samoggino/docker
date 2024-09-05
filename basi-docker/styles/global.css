@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+
+    font-family: "Acme", sans-serif;
+    font-style: normal;
+    --box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    --border: 3px solid black;
+    --border-radius: 30px;
+}
+
+body {
+    background-color: rgb(242, 216, 183);
+    overflow-x: hidden;
+}
+
+
+table {
+    /* min-width: max-content; */
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+input {
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    background-color: var(--bg-color);
+    box-shadow: 4px 4px var(--main-color);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--font-color);
+    padding: 5px 10px;
+    outline: none;
+}
+
+input::placeholder {
+    color: var(--font-color-sub);
+    opacity: 0.8;
+}
+
+input:focus {
+    border: 2px solid var(--input-focus);
+}
+
+button:active,
+.button-confirm:active {
+    box-shadow: 0px 0px black;
+    transform: translate(3px, 3px);
+}
+
+button {
+    margin: 20px 0 20px 0;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid black;
+    box-shadow: 4px 4px black;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--font-color);
+    cursor: pointer;
+}
+
+
+::-webkit-scrollbar {
+    visibility: visible;
+    cursor: pointer;
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 40px;
+    background-color: rgb(162, 161, 158);
+}
+
+#select-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#uploadForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#uploadForm #intestazione {
+    width: 100%;
+}
+
+.widget-professore {
+    margin: 10px;
+    padding: 20px;
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 250px;
+    height: 250px;
+    align-items: center;
+    box-shadow: 4px 4px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+#quesiti .scrollable-widget {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
+#quesiti textarea {
+    width: 300px;
+    height: 100px;
+}
+
+#quesiti #tabelleRiferimento {
+    width: 90%;
+    margin: 10px 15px 0 15px;
+}
+
+
+#intestazione a.home,
+#intestazione a.bin,
+#intestazione a.logout {
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+}
+
+#intestazione a.home {
+    background-image: url("../images/icons/home.svg");
+}
+
+#intestazione a.logout {
+    background-image: url("../images/icons/logout.svg");
+}
+
+#intestazione a.bin {
+    background-image: url("../images/icons/bin.svg");
+}
+
+#intestazione h1 {
+    white-space: nowrap;
+}
+
+.icons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1dvw;
+    padding-left: 4dvw;
+    flex-wrap: wrap;
+}
+
+#intestazione h1 {
+    color: red;
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+.widget-classifica {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px 20px 20px 20px;
+    max-height: 650px;
+    overflow-y: scroll;
+    border: 3px solid black;
+    box-shadow: 4px 4px black;
+    border-radius: 10px;
+}
+
+.widget-classifica h2 {
+    color: red;
+}
+
+.container-classifiche {
+    display: flex;
+    gap: 3dvw;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.widget-professore form select {
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+input[type='text']::placeholder,
+input[type='password']::placeholder,
+input[type='email']::placeholder,
+input[type='number']::placeholder {
+    text-align: center;
+    padding: 0;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 5px;
+    align-content: center;
+}
+
+.lable-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#intestazione {
+    display: grid;
+    grid-template-columns: 0.1fr 0.8fr;
+}
+
+.widget-professore:hover {
+    background-color: rgb(205 173 133);
+    transition: all 0.3s;
+}
+
+#intestazione.homepage {
+    display: grid;
+    grid-template-columns: 0.1fr 0.8fr 0.1fr;
+    justify-items: center;
+    align-items: center;
+}

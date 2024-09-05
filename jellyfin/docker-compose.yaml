@@ -1,0 +1,34 @@
+  ts-jellyfin:
+    image: tailscale/tailscale:latest
+    container_name: ts-jellyfin
+    hostname: jellyfin
+    environment:
+      - TS_AUTHKEY=${TAILSCALE_AUTHKEY}
+      - TS_STATE_DIR=/var/lib/tailscale
+      - TS_USERSPACE=false
+    volumes:
+      - tailscale_data:/var/lib/tailscale
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - net_admin
+      - sys_module
+    restart: unless-stopped
+  
+  jellyfin:
+    image: linuxserver/jellyfin:latest
+    container_name: jellyfin
+    volumes:
+      - jellyfin_config:/config
+      - /mnt/SAMSUNG:/samsung
+      - /mnt/Elements:/elements
+    environment:
+      - PUID=0 # Esegui temporaneamente come root per diagnosticare
+      - PGID=0
+      - ENV_VAR=value
+    restart: unless-stopped
+    network_mode: service:ts-jellyfin
+volumes:
+  jellyfin_config:
+    external: true
+  tailscale_data:
+    driver: local

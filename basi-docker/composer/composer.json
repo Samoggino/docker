@@ -1,0 +1,7 @@
+{
+    "name": "progetto/basi",
+    "description": "il mio progetto di basi di dati",
+    "require": {
+        "mongodb/mongodb": "^1.17"
+    }
+}
