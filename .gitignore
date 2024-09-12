@@ -24,3 +24,7 @@
 
 # ignora il contenuto di mongodb_data
 **/mongodb_data
+
+# ignora minecraft data
+**/minecraft/data
+**/minecraft/mondo1

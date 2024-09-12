@@ -1,22 +1,17 @@
-version: "3"
-
 services:
   minecraft:
     image: itzg/minecraft-server
-    volumes:
-      - minecraftdata:/data
-      - /home/Minecraft/plugins:/plugins
-    ports:
-      - 25565:25565
-    environment:
-      EULA: "TRUE"
-      TYPE: "BUKKIT"
-      OPS: "ButterNPants"
-      ENABLE_WHITELIST: "TRUE"
-      ENFORCE_WHITELIST: "TRUE"
     tty: true
     stdin_open: true
-    restart: unless-stopped
-volumes:
-  minecraftdata:
-    external: true
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      TYPE: FORGE
+      VERSION: "1.21.1"
+      FORGE_VERSION: "52.0.15"
+      SEED: "-6028787346532311643"
+      CF_API_KEY: ${CF_API_KEY}
+
+    volumes:
+      - ./mondo1:/data # Monta la cartella del mondo nel container
