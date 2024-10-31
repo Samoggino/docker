@@ -25,8 +25,8 @@ services:
       - net_admin
       - sys_module
     restart: unless-stopped
-    # env_file:
-    # - ./.env
+    env_file:
+    - ./.env
 
   immich-server:
     container_name: immich_server
@@ -41,12 +41,14 @@ services:
     env_file:
       - .env
     # ports:
-    #   - 2283:3001
+    #   - 2283:2283
     depends_on:
       - redis
       - database
       - ts-immich
     restart: always
+    healthcheck:
+      disable: false
     network_mode: service:ts-immich
 
   immich-machine-learning:
@@ -62,10 +64,12 @@ services:
     env_file:
       - .env
     restart: always
+    healthcheck:
+      disable: false
 
   redis:
     container_name: immich_redis
-    image: docker.io/redis:6.2-alpine@sha256:e3b17ba9479deec4b7d1eeec1548a253acc5374d68d3b27937fcfe4df8d18c7e
+    image: docker.io/redis:6.2-alpine@sha256:2ba50e1ac3a0ea17b736ce9db2b0a9f6f8b85d4c27d5f5accc6a416d8f42c6d5
     healthcheck:
       test: redis-cli ping || exit 1
     restart: always
@@ -86,24 +90,23 @@ services:
       interval: 5m
       start_interval: 30s
       start_period: 5m
-    command: [ "postgres", "-c", "shared_preload_libraries=vectors.so", "-c", 'search_path="$$user", public, vectors', "-c", "logging_collector=on", "-c", "max_wal_size=2GB", "-c", "shared_buffers=512MB", "-c", "wal_compression=on" ]
+    command:
+      [
+        'postgres',
+        '-c',
+        'shared_preload_libraries=vectors.so',
+        '-c',
+        'search_path="$$user", public, vectors',
+        '-c',
+        'logging_collector=on',
+        '-c',
+        'max_wal_size=2GB',
+        '-c',
+        'shared_buffers=512MB',
+        '-c',
+        'wal_compression=on',
+      ]
     restart: always
-
-  immich-microservices:
-    container_name: immich_microservices
-    image: ghcr.io/immich-app/immich-server:release
-    command: [ "start.sh", "microservices" ]
-    volumes:
-      - ${UPLOAD_LOCATION}:/usr/src/app/upload
-      - ${UPLOAD_LOCATION}:/photos/images:ro # read-only
-      - /etc/localtime:/etc/localtime:ro
-    env_file:
-      - .env
-    depends_on:
-      - redis
-      - database
-    restart: unless-stopped
-
 volumes:
   model-cache-data:
     external: true

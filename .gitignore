@@ -28,3 +28,7 @@
 # ignora minecraft data
 **/minecraft/data
 **/minecraft/mondo1
+
+# ignora il contenuto di immich
+**/immich/images
+**/immich/postgres
